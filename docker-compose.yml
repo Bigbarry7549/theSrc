@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: lportal
+      POSTGRES_USER: liferay
+      POSTGRES_PASSWORD: liferay
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U liferay -d lportal"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+
+  liferay:
+    image: liferay/portal:7.4.3.132-ga132
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./liferay-files/portal-ext.properties:/opt/liferay/portal-ext.properties:ro
+      - ./liferay-files/tomcat-lib/postgresql.jar:/opt/liferay/tomcat/lib/postgresql.jar:ro
+

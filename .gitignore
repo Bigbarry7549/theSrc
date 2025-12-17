@@ -1,0 +1,17 @@
+# .NET build output
+**/bin/
+**/obj/
+
+# Playwright artifacts (traces/screenshots)
+tests/Ui.E2E/artifacts/
+
+# Liferay runtime / downloads / volumes
+liferay-files/
+
+# Big vendor source clones (keep separate)
+liferay-portal-src/
+
+# OS/editor noise
+.vscode/
+.idea/
+.DS_Store
