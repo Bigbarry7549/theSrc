@@ -2,13 +2,18 @@
 **/bin/
 **/obj/
 
-# Playwright artifacts (traces/screenshots)
+# Playwright artifacts (traces/screenshots, html dumps)
 tests/Ui.E2E/artifacts/
 
-# Liferay runtime / downloads / volumes
-liferay-files/
+# Local Playwright tool cache (you accidentally committed this)
+tests/Ui.E2E/.store/
 
-# Big vendor source clones (keep separate)
+# Playwright node downloads / browsers (if it appears)
+tests/Ui.E2E/playwright/.local-browsers/
+node_modules/
+
+# Liferay runtime / downloads / volumes (if you use these folders)
+liferay-files/
 liferay-portal-src/
 
 # OS/editor noise
