@@ -20,3 +20,11 @@ liferay-portal-src/
 .vscode/
 .idea/
 .DS_Store
+# Playwright / E2E artifacts
+tests/Ui.E2E/artifacts/
+**/artifacts/
+**/*.zip
+**/*.png
+**/*.webm
+**/*.mp4
+**/*.trace

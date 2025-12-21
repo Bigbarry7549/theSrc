@@ -16,9 +16,19 @@ services:
     depends_on:
       db:
         condition: service_healthy
+
     ports:
       - "8080:8080"
+
+    environment:
+      # Fix broken CSS/images when accessing via Codespaces HTTPS URL
+      - LIFERAY_WEB_PERIOD_SERVER_PERIOD_PROTOCOL=https
+      - LIFERAY_WEB_PERIOD_SERVER_PERIOD_HOST=zany-winner-44vgr9gq4472j9wx-8080.app.github.dev
+      - LIFERAY_WEB_PERIOD_SERVER_PERIOD_HTTP_PERIOD_PORT=80
+      - LIFERAY_WEB_PERIOD_SERVER_PERIOD_HTTPS_PERIOD_PORT=443
+
     volumes:
       - ./liferay-files/portal-ext.properties:/opt/liferay/portal-ext.properties:ro
       - ./liferay-files/tomcat-lib/postgresql.jar:/opt/liferay/tomcat/lib/postgresql.jar:ro
+
 
